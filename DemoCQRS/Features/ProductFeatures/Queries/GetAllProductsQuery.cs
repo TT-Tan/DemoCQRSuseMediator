@@ -16,7 +16,7 @@ namespace DemoCQRS.Features.ProductFeatures.Queries
             }
             public async Task<IEnumerable<Product>> Handle(GetAllProductsQuery query, CancellationToken cancellationToken)
             {
-                var productList = await _context.Products.ToListAsync();
+                var productList = await _context.Products.ToListAsync(cancellationToken);
                 if (productList == null)
                 {
                     return null;
